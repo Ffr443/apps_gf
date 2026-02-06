@@ -48,22 +48,9 @@ private:
     std::string password;
 };
 
-int new_user_add(std::string username, std::string email, std::string password)
+int new_user_add()
 {
-    user new_user(username, email, password);
-    std::cout << "New user created:\n";
-    std::cout << "Username: " << new_user.get_username() << "\n";
-    std::cout << "Email: " << new_user.get_email() << "\n";
-    std::cout << "Password: " << new_user.get_password() << "\n";
 
-    user user_to_save(username, email, password);
-    user_to_save.save_to_file("users.txt");
-
-    return 0;
-}
-
-int main()
-{
     std::cout << "Enter username: ";
     std::string username;
     std::cin >> username;
@@ -74,7 +61,15 @@ int main()
     std::string password;
     std::cin >> password;
 
-    new_user_add(username, email, password);
+
+    user new_user(username, email, password);
+    std::cout << "New user created:\n";
+    std::cout << "Username: " << new_user.get_username() << "\n";
+    std::cout << "Email: " << new_user.get_email() << "\n";
+    std::cout << "Password: " << new_user.get_password() << "\n";
+
+    user user_to_save(username, email, password);
+    user_to_save.save_to_file("users.txt");
 
     std::cout << "User information saved to users.txt\n";
     std::cout << "Do you want to add another user? (y/n): ";
@@ -82,12 +77,23 @@ int main()
     std::cin >> choice;
     if (choice == 'y' || choice == 'Y')
     {
-        main();
+        new_user_add();
     }
     else
     {
         std::cout << "Exiting the program.\n";
     }
+
+    return 0;
+}
+
+int main()
+{
+    
+    new_user_add();
+
+
+    
 
     return 0;
 }
