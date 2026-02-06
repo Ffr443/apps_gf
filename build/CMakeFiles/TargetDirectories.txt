@@ -1,0 +1,2 @@
+/home/bloody/programming/apps/apps_gf/build/CMakeFiles/edit_cache.dir
+/home/bloody/programming/apps/apps_gf/build/CMakeFiles/rebuild_cache.dir
